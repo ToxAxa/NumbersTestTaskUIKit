@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharactersListServiceAPIProtocol {
+protocol NumbersServiceAPIProtocol {
     func fetchNumberInfo(number: Int, completion: @escaping ResultCallback<NumberModel, AppError>)
     func fetchRandomNumberInfo(completion: @escaping ResultCallback<NumberModel, AppError>)
 }
@@ -23,7 +23,7 @@ class NumberRequestService {
     }
 }
 
-extension NumberRequestService: CharactersListServiceAPIProtocol {
+extension NumberRequestService: NumbersServiceAPIProtocol {
 
     func fetchNumberInfo(number: Int, completion: @escaping ResultCallback<NumberModel, AppError>) {
         do {

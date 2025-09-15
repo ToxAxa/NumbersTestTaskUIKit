@@ -14,7 +14,7 @@ enum TypeOfNumber {
 }
 
 protocol MainViewModelProtocol {
-    init(requestService: CharactersListServiceAPIProtocol, coreDataService: CoreDataService)
+    init(requestService: NumbersServiceAPIProtocol, coreDataService: CoreDataService)
     func createQueryByNumber(with type: TypeOfNumber, completion: @escaping BoolAction)
     func clearHistoryNumber()
     func fetchNumbersData(completion: @escaping Action)
@@ -27,11 +27,11 @@ protocol MainViewModelProtocol {
 final class MainViewModel: MainViewModelProtocol {
     
     // MARK: - Private Properties
-    private let requestService: CharactersListServiceAPIProtocol
+    private let requestService: NumbersServiceAPIProtocol
     private let coreDataService: CoreDataService
     
     // MARK: - Initialization
-    init(requestService: CharactersListServiceAPIProtocol, coreDataService: CoreDataService) {
+    init(requestService: NumbersServiceAPIProtocol, coreDataService: CoreDataService) {
         self.requestService = requestService
         self.coreDataService = coreDataService
     }
@@ -39,7 +39,6 @@ final class MainViewModel: MainViewModelProtocol {
     // MARK: - Public Properties
     var currentNumber: Int?
     var numberInfo: NumberInfoModel?
-    var currentTypeOfNumber: TypeOfNumber = .none
     var dataArray: [NumberInfoData] = []
     var chosenIndexPath: IndexPath?
     var showNumberDetailScreenAction: ShowDetailScreenAction?
@@ -91,6 +90,7 @@ final class MainViewModel: MainViewModelProtocol {
     
     // MARK: - Public Methods
     func createQueryByNumber(with type: TypeOfNumber, completion: @escaping BoolAction) {
+
         switch type {
         case .none:
             break

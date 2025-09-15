@@ -198,8 +198,7 @@ class MainViewController: UIViewController {
             } else {
                 //Some Alert
             }
-            
-            self.getFactButton.isEnabledButton = true
+
             self.viewModel.clearHistoryNumber()
             self.mainTextField.clearTextField()
         }
